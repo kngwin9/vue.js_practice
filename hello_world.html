@@ -25,10 +25,20 @@
         <p v-if="seen">Now you see me</p>
     </div>
 
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+
 
 </body>
 
 <script>
+
+//    Declarative Rendering
      const app = new Vue({
         el: '#app',
         data: {
@@ -41,12 +51,25 @@
              message: 'You loaded this page on ' + new Date()
          }
      });
+
+//     Conditionals and Loops
      const app3 = new Vue({
          el: '#app-3',
          data: {
              seen: true
          }
      });
+
+     const app4 = new Vue({
+        el: '#app-4',
+        data: {
+            todos: [
+                { text: 'Learn JavaScript' },
+                { text: 'Learn Vue' },
+                { text: 'Build something awesome' }
+            ]
+        }
+     })
 
 </script>
 

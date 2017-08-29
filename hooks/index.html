@@ -10,8 +10,9 @@
 <body>
     <div id="app">
         <div class="">
-            Hello World!
+            Count: {{count}}
         </div>
+        <button class="vue-btn" @click="increment">Increment</button>
     </div>
 
     <script>
@@ -19,20 +20,16 @@
         let app = new Vue({
             el: '#app',
             data: {
-
+                count: 0
             },
             methods: {
-              alertTime() {
-                  alert(`The Time is ${Date.now().toLocaleString()}`)
-              }
+                increment() {
+                    this.count++
+                }
             },
-            // When first created
-            created() {
-                this.alertTime()
-            },
-            // After mounts
-            mounted() {
-                this.alertTime()
+            // Good for tracking state change
+            updated() {
+                console.log('this.count ', this.count)
             }
         })
     </script>
